@@ -8,14 +8,21 @@
         <input type="color" id="eventColorInput" class="form-control w-25 m-1 h-100" name="eventColorInput" placeholder="Event color"/>
         <input type="text" id="eventNameInput" class="form-control w-75 m-1 h-100" name="eventNameInput" placeholder="Event name"/>
       </div>
-      <button class="btn btn-primary w-100" >Add</button>
+      <button class="btn btn-primary w-100 mb-2" onclick="createMyEvent()">Add</button>
+      <button class="btn btn-warning w-100" onclick="range.reset()">Reset selection</button>
+      <div class="mt-5">
+        <h2>Logs</h2>
+        <ul id="logs">
+          <li>Empty</li>
+        </ul>
+      </div>
     </div>
     <div class="col order-md-1">
-      {% for year in range(0, 85) %}
+      {% for year in range(0, 84) %}
       <div class="d-flex">
-        <span style="width:25px">{{year}}</span>
-        {% for week in range(0, 52) %}
-        <div class="weektime">{{week}}</div>
+        <span style="width:25px">{{year+1}}</span>
+        {% for week in range(0, 51) %}
+        <div id="wt-{{(year*52)+week}}" class="weektime">{{week+1}}</div>
         {% endfor %}
       </div>
       {% endfor %}
