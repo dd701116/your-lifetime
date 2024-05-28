@@ -1,6 +1,24 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
+  <div class="row mx-0">
+    <div class="col order-md-2">
+      <h1>{{title}}</h1>
+      <div class="d-flex py-2 mb-2" style="height:50px;">
+        <input type="color" id="eventColorInput" class="form-control w-25 m-1 h-100" name="eventColorInput" placeholder="Event color"/>
+        <input type="text" id="eventNameInput" class="form-control w-75 m-1 h-100" name="eventNameInput" placeholder="Event name"/>
+      </div>
+      <button class="btn btn-primary w-100" >Add</button>
+    </div>
+    <div class="col order-md-1">
+      {% for year in range(0, 85) %}
+      <div class="d-flex">
+        <span style="width:25px">{{year}}</span>
+        {% for week in range(0, 52) %}
+        <div class="weektime">{{week}}</div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
